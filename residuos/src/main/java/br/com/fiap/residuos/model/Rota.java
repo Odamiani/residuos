@@ -1,32 +1,29 @@
 package br.com.fiap.residuos.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+        import jakarta.persistence.*;
+        import jakarta.validation.constraints.NotBlank;
+        import com.fasterxml.jackson.annotation.JsonIgnore;
+        import lombok.Getter;
+        import lombok.Setter;
 
-import java.util.Date;
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
+        import java.util.List;
+
 @Entity
 @Table(name = "tbl_rotas")
+@Getter
+@Setter
 public class Rota {
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "SEQ_ROTAS"
-    )
-    @SequenceGenerator(
-            name = "SEQ_ROTAS",
-            sequenceName = "SEQ_ROTAS",
-            allocationSize = 1
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
     private String descricao;
-    private Date data;
-    @ManyToOne
-    @JoinColumn(name = "endereco_id")
-    private Endereco endereco;
+
+    @OneToMany(mappedBy = "rota")
+    @JsonIgnore // Evita serialização em loop infinito
+    private List<Coleta> coletas;
+
+    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 }
