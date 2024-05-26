@@ -30,8 +30,8 @@ public class Lixeira {
     private String codigoIdentificacao;
 
     @NotNull
-    @Min(100) // Valor mínimo de capacidade (exemplo)
-    @Max(5000) // Valor máximo de capacidade (exemplo)
+    @Min(100)
+    @Max(5000)
     private Double capacidade;
 
     @NotNull
@@ -52,13 +52,12 @@ public class Lixeira {
     private Endereco endereco;
 
     @OneToMany(mappedBy = "lixeira", cascade = CascadeType.ALL)
-    @JsonIgnore // Evita serialização em loop infinito
+    @JsonIgnore
     private List<Sensor> sensores;
 
     @OneToMany(mappedBy = "lixeira")
-    @JsonIgnore // Evita serialização em loop infinito
+    @JsonIgnore
     private List<Coleta> coletas;
 
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 
 }

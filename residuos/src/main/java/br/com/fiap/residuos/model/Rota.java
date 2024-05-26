@@ -22,8 +22,6 @@ public class Rota {
     private String descricao;
 
     @OneToMany(mappedBy = "rota")
-    @JsonIgnore // Evita serialização em loop infinito
+    @JsonIgnore
     private List<Coleta> coletas;
-
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 }

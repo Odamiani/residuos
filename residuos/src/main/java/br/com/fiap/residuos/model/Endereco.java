@@ -29,6 +29,4 @@ public class Endereco {
     private String complemento;
 
     private String cep;
-
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 }

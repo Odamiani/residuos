@@ -36,14 +36,12 @@ public class Coleta {
     @NotNull
     private LocalDateTime dataHoraInicio;
 
-    private LocalDateTime dataHoraFim; // Pode ser nulo se a coleta ainda não foi concluída
+    private LocalDateTime dataHoraFim;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     private StatusColeta status;
 
-    private Double quantidadeRecolhida; // Opcional, preenchido após a conclusão da coleta
-
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
+    private Double quantidadeRecolhida;
 }
 

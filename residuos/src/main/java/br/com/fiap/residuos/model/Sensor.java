@@ -25,11 +25,9 @@ public class Sensor {
     @NotNull
     @Min(0)
     @Max(100)
-    private Double nivelAtual; // Nível de preenchimento atual em porcentagem
+    private Double nivelAtual;
 
     @ManyToOne
     @JoinColumn(name = "lixeira_id", nullable = false)
     private Lixeira lixeira;
-
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 }

@@ -26,8 +26,8 @@ public class CaminhaoLixo {
     private String placa;
 
     @NotNull
-    @Min(100) // Valor mínimo de capacidade (exemplo)
-    @Max(5000) // Valor máximo de capacidade (exemplo)
+    @Min(100)
+    @Max(5000)
     private Double capacidade;
 
     @NotNull
@@ -35,8 +35,6 @@ public class CaminhaoLixo {
     private StatusCaminhaoLixo status;
 
     @OneToMany(mappedBy = "caminhaoLixo")
-    @JsonIgnore // Evita serialização em loop infinito
+    @JsonIgnore
     private List<Coleta> coletas;
-
-    // Construtores, getters e setters (omitidos para simplificar o exemplo)
 }

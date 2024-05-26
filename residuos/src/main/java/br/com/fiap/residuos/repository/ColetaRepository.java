@@ -1,10 +1,9 @@
 package br.com.fiap.residuos.repository;
 
-import br.com.fiap.residuos.model.Rota;
+import br.com.fiap.residuos.model.Coleta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RotaRepository extends JpaRepository<Rota, Long> {
+public interface ColetaRepository extends JpaRepository<Coleta, Long> {
 }
-

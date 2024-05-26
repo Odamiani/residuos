@@ -4,5 +4,5 @@ public enum StatusLixeira {
     VAZIA,
     CHEIA,
     EM_COLETA,
-    MANUTENCAO
+    MANUTENCAO,
 }
