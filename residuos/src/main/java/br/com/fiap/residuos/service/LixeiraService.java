@@ -2,6 +2,8 @@ package br.com.fiap.residuos.service;
 
 import br.com.fiap.residuos.model.Lixeira;
 import br.com.fiap.residuos.repository.LixeiraRepository;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

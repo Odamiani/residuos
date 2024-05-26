@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "tbl_lixeiras")
@@ -59,4 +60,5 @@ public class Lixeira {
     private List<Coleta> coletas;
 
     // Construtores, getters e setters (omitidos para simplificar o exemplo)
+
 }
