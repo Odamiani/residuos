@@ -4,18 +4,19 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
-import lombok.Getter;
-import lombok.Setter;
 
-import java.util.List;
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tbl_lixeiras")
 @Getter
 @Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Lixeira {
 
     @Id
@@ -23,10 +24,10 @@ public class Lixeira {
     private Long id;
 
     @NotNull
-    @Column(name = "data_cadastro")
+    @Column(name = "DATA_CADASTRO")
     private LocalDate dataCadastro;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "CODIGO_IDENTIFICACAO")
     private String codigoIdentificacao;
 
     @NotNull
@@ -35,6 +36,7 @@ public class Lixeira {
     private Double capacidade;
 
     @NotNull
+    @Column (name = "NIVEL_PREENCHIMENTO")
     @Min(0)
     @Max(100)
     private Double nivelPreenchimento;
@@ -48,16 +50,6 @@ public class Lixeira {
     private TipoLixo tipoLixo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    @JoinColumn(name = "ENDERECO_ID", referencedColumnName = "ID")
     private Endereco endereco;
-
-    @OneToMany(mappedBy = "lixeira", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Sensor> sensores;
-
-    @OneToMany(mappedBy = "lixeira")
-    @JsonIgnore
-    private List<Coleta> coletas;
-
-
 }

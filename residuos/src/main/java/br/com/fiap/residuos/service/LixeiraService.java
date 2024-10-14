@@ -27,7 +27,6 @@ public class LixeiraService {
     }
 
     public Lixeira criarLixeira(Lixeira lixeira) {
-        // Validações (opcional) - exemplo: verificar se o código de identificação já existe
         if (lixeiraRepository.existsByCodigoIdentificacao(lixeira.getCodigoIdentificacao())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Código de identificação já existe");
         }
@@ -39,7 +38,6 @@ public class LixeiraService {
         Lixeira lixeiraExistente = lixeiraRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Lixeira não encontrada"));
 
-        // Validações (opcional) - exemplo: verificar se o novo código de identificação já existe em outra lixeira
         if (!lixeiraExistente.getCodigoIdentificacao().equals(lixeiraAtualizada.getCodigoIdentificacao()) &&
                 lixeiraRepository.existsByCodigoIdentificacao(lixeiraAtualizada.getCodigoIdentificacao())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Código de identificação já existe");
@@ -52,7 +50,6 @@ public class LixeiraService {
         lixeiraExistente.setStatus(lixeiraAtualizada.getStatus());
         lixeiraExistente.setTipoLixo(lixeiraAtualizada.getTipoLixo());
         lixeiraExistente.setEndereco(lixeiraAtualizada.getEndereco());
-        lixeiraExistente.setSensores(lixeiraAtualizada.getSensores());
 
         return lixeiraRepository.save(lixeiraExistente);
     }
