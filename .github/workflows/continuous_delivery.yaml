@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/fiap-startup-urban-clean:${{ github.sha }}
+          tags: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/fiap-urban-clean:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -42,7 +42,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'startup-urban-clean'
+          app-name: 'urban-clean-dev'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PROFILE }}
-          images: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/fiap-startup-urban-clean:${{ github.sha }}
+          images: index.docker.io/${{ secrets.DOCKERHUB_USERNAME }}/fiap-urban-clean:${{ github.sha }}
