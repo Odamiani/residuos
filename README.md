@@ -1,6 +1,6 @@
 # API Java - Urban Clean
 
-Aplicação API para projeto StartUp
+Aplicação API para projeto StartUp na FIAP
 
 ## Pré-requisitos
 
