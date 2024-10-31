@@ -1,6 +1,6 @@
 # API Java - Urban Clean
 
-Aplicação API para projeto StartUp teste teste
+Aplicação API para projeto StartUp 
 
 ## Pré-requisitos
 
@@ -10,9 +10,21 @@ Aplicação API para projeto StartUp teste teste
 
 ##  Execução
 
+
+
+Criar um container no docker:
 ```sh
-mvn spring-boot:run
+ docker build -t api-residuos-image .
 ```
+
+
+iniciar um container a partir da imagem api-residuos-image 
+```sh
+ docker run -d --name my-app-residuos -p 8080:8080 api-residuos-image
+```
+
+
+
 
 
 
