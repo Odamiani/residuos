@@ -1,6 +1,6 @@
 # API Java - Urban Clean
 
-Aplicação API para projeto StartUp teste
+Aplicação API para projeto StartUp teste teste
 
 ## Pré-requisitos
 
