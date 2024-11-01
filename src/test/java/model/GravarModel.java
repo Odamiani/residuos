@@ -8,6 +8,7 @@ import java.util.Objects;
 @Data
 public class GravarModel {
 
+
     @Expose(serialize = false)
     private int moradorId;
 
@@ -24,6 +25,7 @@ public class GravarModel {
     private String senha;
 
     @Expose
-    private String role;
+    private String role ;
+
 
 }

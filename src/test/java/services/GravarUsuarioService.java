@@ -17,8 +17,10 @@ public class GravarUsuarioService {
 
     public Response response;
     String baseUrl = "http://localhost:8080";
+    String moradorId;
     public void setFieldsRecord(String field, String value){
         switch (field){
+            case "moradorId" -> gravarModel.setMoradorId(Integer.parseInt(value));
             case "nome" -> gravarModel.setNome(value);
             case "telefone" -> gravarModel.setTelefone(value);
             case "email" -> gravarModel.setEmail(value);
@@ -40,6 +42,21 @@ public void createRecord(String endPoint){
                 .then()
                 .extract()
                 .response();
+}
+
+public void retrieveMoradorId(){
+      moradorId = String.valueOf(gson.fromJson(response.jsonPath().prettify(), GravarModel.class).getMoradorId());
+}
+
+public void deleteUser(String endPoint){
+        String url = String.format("%s%s/%s", baseUrl, endPoint, moradorId);
+    response = given()
+            .accept(ContentType.JSON)
+            .when()
+            .delete(url)
+            .then()
+            .extract()
+            .response();
 }
 
 }

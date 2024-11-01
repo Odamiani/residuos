@@ -28,21 +28,33 @@ public class SecurityConfig {
         return httpSecurity.csrf(csrf -> csrf.disable())
                 .sessionManagement(
                         session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> authorize
 
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/usuarios").hasAnyRole("ADMIN", "USER")
-                        .requestMatchers(HttpMethod.POST, "/api/usuarios").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/api/usuarios").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/api/usuarios").hasRole("ADMIN")
-                        .anyRequest()
-                        .authenticated())
-                .addFilterBefore(
-                        verificarToken,
-                        UsernamePasswordAuthenticationFilter.class
+
+//PARA TESTES DE TODOS OS ENDPOINTS SEM NECESSIDADE DE REALIZAR LOGIN TIRE O COMENTARIO DO SEGUINTE TRECHO:
+                .authorizeHttpRequests(authorize -> authorize
+                        .anyRequest().permitAll() // Permitir todas as requisições
                 )
                 .build();
+
+
+
+//PARA VOLTAR AO PADRÃO DA APLICAÇÃO COM AUTENTICAÇÃO DEIXE O SEGUINTE TRECHO DE CÓDIGO SEM COMENTARIO:
+
+//                .authorizeHttpRequests(authorize -> authorize
+//
+//                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+//                        .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+//                        .requestMatchers(HttpMethod.GET, "/api/usuarios").hasAnyRole("ADMIN", "USER")
+//                        .requestMatchers(HttpMethod.POST, "/api/usuarios").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.PUT, "/api/usuarios").hasRole("ADMIN")
+//                        .requestMatchers(HttpMethod.DELETE, "/api/usuarios").hasRole("ADMIN")
+//                        .anyRequest()
+//                        .authenticated())
+//                .addFilterBefore(
+//                        verificarToken,
+//                        UsernamePasswordAuthenticationFilter.class
+//                )
+//                .build();
     }
 
     @Bean
