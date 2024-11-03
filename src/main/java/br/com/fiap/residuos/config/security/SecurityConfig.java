@@ -31,6 +31,7 @@ public class SecurityConfig {
 
 
 //PARA TESTES DE TODOS OS ENDPOINTS SEM NECESSIDADE DE REALIZAR LOGIN TIRE O COMENTARIO DO SEGUINTE TRECHO:
+
                 .authorizeHttpRequests(authorize -> authorize
                         .anyRequest().permitAll() // Permitir todas as requisições
                 )
