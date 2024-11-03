@@ -42,7 +42,9 @@ Dado que eu tenha os seguintes dados da entrega:
 
 | role      | ADMIN         |
 
-
+```sh
+ mvn clean test
+```
 
 
 
