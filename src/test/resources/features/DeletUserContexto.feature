@@ -1,4 +1,5 @@
 # language: pt
+@regressivo
 Funcionalidade: Deletar um usuario
   Como usuário da API
   Quero conseguir deletar um usuario

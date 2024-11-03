@@ -24,7 +24,7 @@ iniciar um container a partir da imagem api-residuos-image
 ```
 
 ## TESTES BDD
-Para realizar todos os testes de uma unica vez basta utilizar a java class "RunTest" localizada: "src/test/java/RunTest"
+Para realizar todos os testes de uma unica vez basta utilizar a classe "TestRunner" localizada: "src/test/java/runner"
 
 Para alguns testes será necessario alterar o email do usuario por conta de não permitir usuarios repetidos.
 
