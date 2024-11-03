@@ -8,7 +8,7 @@ Funcionalidade: Cadastro de novo usuario
       | campo     | valor         |
       | nome      | ADMIN11        |
       | telefone  | 46999827114   |
-      | email     | admin44@admin  |
+      | email     | admin49@admin  |
       | senha     | adminadmin4   |
       | role      | ADMIN         |
     Quando eu enviar a requisição para o endpoint "/auth/register" de cadastro de usuarios sem auth
