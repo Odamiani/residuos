@@ -2,6 +2,7 @@ package steps;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.networknt.schema.ValidationMessage;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Então;
@@ -10,8 +11,10 @@ import model.ErrorMessageModel;
 import org.junit.Assert;
 import services.GravarUsuarioService;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class GravarUsuarioSteps {
     GravarUsuarioService gravarUsuarioService = new GravarUsuarioService();
@@ -50,5 +53,16 @@ public class GravarUsuarioSteps {
     @Quando("eu enviar a requisição com o ID para o endpoint {string} de deleção de entrega")
     public void euEnviarARequisiçãoComOIDParaOEndpointDeDeleçãoDeEntrega(String endPoint) {
         gravarUsuarioService.deleteUser(endPoint);
+    }
+
+    @E("que o arquivo de contrato esperado é o {string}")
+    public void queOArquivoDeContratoEsperadoÉO(String contract) throws IOException {
+        gravarUsuarioService.setContract(contract);
+    }
+
+    @Então("a resposta da requisição deve estar em conformidade com o contrato selecionado")
+    public void aRespostaDaRequisiçãoDeveEstarEmConformidadeComOContratoSelecionado() throws IOException{
+        Set<ValidationMessage> validateResponse = gravarUsuarioService.validateResponseAgainstSchema();
+        Assert.assertTrue("O contrato está inválido. Erros encontrados: "+ validateResponse, validateResponse.isEmpty());
     }
 }

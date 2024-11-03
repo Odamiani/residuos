@@ -23,6 +23,25 @@ iniciar um container a partir da imagem api-residuos-image
  docker run -d --name my-app-residuos -p 8080:8080 api-residuos-image
 ```
 
+## TESTES BDD
+Para realizar todos os testes de uma unica vez basta utilizar a java class "RunTest" localizada: "src/test/java/RunTest"
+
+Para alguns testes será necessario alterar o email do usuario por conta de não permitir usuarios repetidos.
+
+Dado que eu tenha os seguintes dados da entrega:
+
+| campo     | valor         |
+
+| nome      | ADMIN11        |
+
+| telefone  | 46999827114   |
+
+| email     | admin40@admin  |  <-- ALTERAR VALOR EM CASO DE ERRO NA EXECUÇÃO DOS TESTES
+
+| senha     | adminadmin4   |
+
+| role      | ADMIN         |
+
 
 
 
