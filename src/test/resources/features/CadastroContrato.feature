@@ -9,7 +9,7 @@ Funcionalidade: Validar o contrato ao realizar um cadastro bem-sucedido
       | campo     | valor               |
       | nome      | sou apenas um teste |
       | telefone  | 46999827114         |
-      | email     | teste45@gmail.com    |
+      | email     | teste48@gmail.com    |
       | senha     | 12345678            |
       | role      | USER                |
     Quando eu enviar a requisição para o endpoint "/auth/register" de cadastro de usuarios sem auth
